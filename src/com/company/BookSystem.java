@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class BookSystem {
     private List<Book> books;
-    private Scanner scr= new Scanner(System.in);
+    private Scanner scr = new Scanner(System.in);
 
     public BookSystem() {
         books = new ArrayList<Book>();
@@ -24,7 +24,7 @@ public class BookSystem {
 
         books.add(new Book("Thus speaks Zarathustra", "Frederich Nistzche", "Thus Spoke Zarathustra: A Book for All and None is a philosophical novel by German philosopher" +
                 " Friedrich Nietzsche, " +
-                "composed in four parts written between 1883 and 1885 and published between 1883 and 1891", false));
+                "composed in four parts written between 1883 and 1885 and published between 1883 and 1891", true));
 
 
         books.add(new Book("The selfish Gene", "Richard Dawkinns", "The Selfish Gene is a 1976 book on evolution by the biologist Richard Dawkins, " +
@@ -55,35 +55,63 @@ public class BookSystem {
     }
 
     public void showBookInfo() {
-       String bookname= scr.nextLine();
+        String bookname = scr.nextLine();
         for (Book book : books) {
-            if (book.getBookName().toLowerCase().contains(bookname.toLowerCase())){
+            if (book.getBookName().toLowerCase().contains(bookname.toLowerCase())) {
 
-            System.out.printf("Book name :%s , Book author: %s, Book description: %s, Book availability: %b ",
-                    book.getBookName(), book.getBookAuthor(), book.getDescription(), book.getAvailability());
+                System.out.printf("Book name :%s , Book author: %s, Book description: %s, Book availability: %b ",
+                        book.getBookName(), book.getBookAuthor(), book.getDescription(), book.getAvailability());
             }
         }
     }
-public void searchBook(){
-    String bookname= scr.nextLine();
-    for (Book book: boo)
 
-}
+    public Book searchBook() {
+        String bookname = scr.nextLine();
+        for (Book book : books) {
+            if (book.getBookName().toLowerCase().contains(bookname.toLowerCase())) {
+
+                System.out.printf("Results: %s ", book.getBookName());
+                return book;
+            }
+        }
+        return null;
+    }
 
 
-    public void isBookLended() {
-        for (Book book : books){
-            if (book.getAvailability()==false){
+    public void printAvailabeBooks() {
+        for (Book book : books) {
+            if (book.getAvailability()) {
+                System.out.printf("Book: %s has Book availability: %b ", book.getBookName(), book.getAvailability());
 
-            System.out.printf("Book: %s has Book availability: %b ", book.getBookName(), book.getAvailability());
             }
         }
 
+
     }
-    public void lendBook(){
+
+    public Book lendBook() {
+        Book book = searchBook();
+
+        if (book.getAvailability()) {
+            book.setAvailability(false);
+            System.out.println();
+            System.out.printf("You borrowed: %s, %b ", book.getBookName(), book.getAvailability());
+        }
+        return null;
+    }
+
+
+    public void returnBook() {
+
+        Book book =searchBook();
+
+        if (!book.getAvailability()){
+            book.setAvailability(true);
+            System.out.println();
+            System.out.printf("you returned: %s, %b", book.getBookName(), book.getAvailability());
 
         }
-    public void returnBook(){
+
 
     }
 }

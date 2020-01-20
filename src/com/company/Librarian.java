@@ -22,7 +22,7 @@ public class Librarian extends User {
         System.out.println("-----------------------------------------------");
         System.out.println("choose an option");
         System.out.println("1. See all books");
-        System.out.println("2. See Lended book");
+        System.out.println("2. See Available book");
         System.out.println("3. See Students ");
         System.out.println("4. Search for book ");
         System.out.println("5. Show all book info");
@@ -37,14 +37,15 @@ public class Librarian extends User {
                     bookSystem.showBooks();
                     break;
                 case 2:
-                    System.out.println("See Lended books");
-                    bookSystem.isBookLended();
+                    System.out.println("See Available books");
+                    bookSystem.printAvailabeBooks();
                     break;
                 case 3:
                     System.out.println("See students");
                     break;
                 case 4:
                     System.out.println("Search for book");
+                    bookSystem.searchBook();
                     break;
                 case 5:
                     System.out.println("See all Book info");

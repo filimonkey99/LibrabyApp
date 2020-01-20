@@ -48,6 +48,7 @@ public class Library {
                         student.StudentLogin();
                     } else {
                         System.out.println("wrong password or username");
+                        running=false;
                     }
                     break;
                 case "2":
@@ -64,6 +65,7 @@ public class Library {
                         librarian.LibrarianLogin();
                     } else {
                         System.out.println("wrong password or username");
+                        running=false;
                     }
 
 
