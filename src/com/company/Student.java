@@ -1,9 +1,12 @@
 package com.company;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Student extends User {
+
+    List<Book> borrowedBooks;
 
     BookSystem bookSystem = new BookSystem();
 
@@ -42,16 +45,19 @@ public class Student extends User {
                     break;
                 case 2:
                     System.out.println("Lend book");
+                    bookSystem.lendBook();
                     break;
                 case 3:
-                    System.out.println(" See lended book");
-                    bookSystem.isBookLended();
+                    System.out.println(" See Available book");
+                    bookSystem.printAvailabeBooks();
                     break;
                 case 4:
                     System.out.println("Return book");
+                    bookSystem.returnBook();
                     break;
                 case 5:
                     System.out.println("Search for book");
+                    bookSystem.searchBook();
                     break;
                 case 6:
                     System.out.println("See all Book info");
