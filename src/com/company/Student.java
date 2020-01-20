@@ -3,7 +3,7 @@ package com.company;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Student extends Person {
+public class Student extends User {
 
 
 
@@ -26,7 +26,7 @@ public class Student extends Person {
             switch (studentOption){
                 case 1:
                     System.out.println("See all books");
-                    
+
                     break;
                 case 2:
                     System.out.println("Lend book");

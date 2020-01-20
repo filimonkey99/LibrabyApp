@@ -2,7 +2,16 @@ package com.company;
 
 import java.util.Scanner;
 
-public class Librarian extends Person {
+public class Librarian extends User {
+
+    BookSystem bookSystem = new BookSystem();
+
+    User user = new User() {
+        @Override
+        public void showAllBooks() {
+            super.showAllBooks();
+        }
+    };
 
     Scanner librarianInput = new Scanner(System.in);
 
@@ -18,12 +27,12 @@ public class Librarian extends Person {
         System.out.println("4. Exit");
         System.out.println("write a number please");
 
-        while (running){
+        while (running) {
             int librarianOption = librarianInput.nextInt();
-            switch (librarianOption){
+            switch (librarianOption) {
                 case 1:
                     System.out.println("See all books");
-
+                    bookSystem.showBooks();
                     break;
                 case 2:
                     System.out.println("See Lended books");
@@ -33,7 +42,7 @@ public class Librarian extends Person {
                     break;
                 case 4:
                     System.out.println("Exiting");
-                    running=false;
+                    running = false;
                     break;
 
             }
