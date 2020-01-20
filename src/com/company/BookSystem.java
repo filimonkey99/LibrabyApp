@@ -3,54 +3,15 @@ package com.company;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Book {
+public class BookSystem {
+    private List<Book> books;
 
-    private String bookName;
-    private String bookAuthor;
-    private String description;
-    private boolean availability;
-
-    public Book(String bookName, String bookAuthor, String description ,boolean availability) {
-        this.bookName = bookName;
-        this.bookAuthor = bookAuthor;
-        this.description =description;
-        this.availability = availability;
+    public BookSystem() {
+        books = new ArrayList<Book>();
+        addBooks();
     }
 
-    public Book() {
-
-    }
-
-    public String getBookName() {
-        return bookName;
-    }
-
-    public String getBookAuthor() {
-        return bookAuthor;
-    }
-    public String getDescription(){
-        return description;
-    }
-
-    public boolean getAvailability() {
-        return availability;
-    }
-
-    public void setAvailability(boolean availability) {
-        this.availability = availability;
-    }
-
-    @Override
-    public String toString() {
-        return "Book{" +
-                "bookName='" + bookName + '\'' +
-                ", bookAuthor='" + bookAuthor + '\'' +
-                ", availability=" + availability +
-                '}';
-    }
-
-    public void showAllBooks() {
-        List<Book> books= new ArrayList<>();
+    public void addBooks() {
 
         books.add(new Book("Crime and punishment", "Freydor Dostoyevski",
                 "Crime and Punishment is a novel by the Russian author Fyodor Dostoevsky. " +
@@ -81,9 +42,15 @@ public class Book {
                 "The Old Testament was written for the most part in Hebrew, with a small percentage in Aramaic. " +
                 "The New Testament was written in Greek.", true));
 
+
+    }
+    public void showBooks(){
         for(Book book: books){
-            System.out.printf("Book name :%s, Book author: %s", getBookName(),getBookAuthor());
+            System.out.printf("Book name :%s, Book author: %s", book.getBookName(), book.getBookAuthor() );
         }
+
+    }
+    public void showBookInfo(){
 
     }
 }
