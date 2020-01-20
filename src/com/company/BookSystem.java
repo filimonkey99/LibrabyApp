@@ -2,9 +2,11 @@ package com.company;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class BookSystem {
     private List<Book> books;
+    private Scanner scr= new Scanner(System.in);
 
     public BookSystem() {
         books = new ArrayList<Book>();
@@ -44,13 +46,44 @@ public class BookSystem {
 
 
     }
-    public void showBooks(){
-        for(Book book: books){
-            System.out.printf("Book name :%s, Book author: %s", book.getBookName(), book.getBookAuthor() );
+
+    public void showBooks() {
+        for (Book book : books) {
+            System.out.printf("Book name :%s , Book author: %s ", book.getBookName(), book.getBookAuthor());
         }
 
     }
-    public void showBookInfo(){
+
+    public void showBookInfo() {
+       String bookname= scr.nextLine();
+        for (Book book : books) {
+            if (book.getBookName().toLowerCase().contains(bookname.toLowerCase())){
+
+            System.out.printf("Book name :%s , Book author: %s, Book description: %s, Book availability: %b ",
+                    book.getBookName(), book.getBookAuthor(), book.getDescription(), book.getAvailability());
+            }
+        }
+    }
+public void searchBook(){
+    String bookname= scr.nextLine();
+    for (Book book: boo)
+
+}
+
+
+    public void isBookLended() {
+        for (Book book : books){
+            if (book.getAvailability()==false){
+
+            System.out.printf("Book: %s has Book availability: %b ", book.getBookName(), book.getAvailability());
+            }
+        }
+
+    }
+    public void lendBook(){
+
+        }
+    public void returnBook(){
 
     }
 }

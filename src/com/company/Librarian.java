@@ -7,9 +7,9 @@ public class Librarian extends User {
     BookSystem bookSystem = new BookSystem();
 
     User user = new User() {
-        @Override
+
         public void showAllBooks() {
-            super.showAllBooks();
+           showAllBooks();
         }
     };
 
@@ -24,7 +24,9 @@ public class Librarian extends User {
         System.out.println("1. See all books");
         System.out.println("2. See Lended book");
         System.out.println("3. See Students ");
-        System.out.println("4. Exit");
+        System.out.println("4. Search for book ");
+        System.out.println("5. Show all book info");
+        System.out.println("6. Exit");
         System.out.println("write a number please");
 
         while (running) {
@@ -36,14 +38,23 @@ public class Librarian extends User {
                     break;
                 case 2:
                     System.out.println("See Lended books");
+                    bookSystem.isBookLended();
                     break;
                 case 3:
-                    System.out.println("See students1");
+                    System.out.println("See students");
                     break;
                 case 4:
+                    System.out.println("Search for book");
+                    break;
+                case 5:
+                    System.out.println("See all Book info");
+                    bookSystem.showBookInfo();
+                    break;
+                case 6:
                     System.out.println("Exiting");
                     running = false;
                     break;
+
 
             }
         }
