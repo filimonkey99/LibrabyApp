@@ -26,7 +26,8 @@ public class Librarian extends User {
         System.out.println("3. See Students ");
         System.out.println("4. Search for book ");
         System.out.println("5. Show all book info");
-        System.out.println("6. Exit");
+        System.out.println("6 show all lended books");
+        System.out.println("7. Exit");
         System.out.println("write a number please");
 
         while (running) {
@@ -52,6 +53,9 @@ public class Librarian extends User {
                     bookSystem.showBookInfo();
                     break;
                 case 6:
+                    System.out.println("see lended books");
+                    bookSystem.showMyBooks();
+                case 7:
                     System.out.println("Exiting");
                     running = false;
                     break;
