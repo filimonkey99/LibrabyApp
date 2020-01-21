@@ -74,6 +74,7 @@ public class Student extends User {
                     break;
                 case 7:
                     System.out.println("See all Book info");
+                    System.out.println("write the name of the book");
                     bookSystem.showBookInfo();
                     break;
                 case 8:

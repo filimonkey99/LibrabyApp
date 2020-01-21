@@ -1,5 +1,9 @@
 package com.company;
 
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -11,6 +15,7 @@ public class BookSystem {
     public BookSystem() {
         books = new ArrayList<Book>();
         addBooks();
+
     }
 
     public void addBooks() {
@@ -123,4 +128,19 @@ public class BookSystem {
         }
 
     }
+    public void saveBooks(){
+        FileUtil.saveObject("book.ser", books, StandardOpenOption.CREATE);
+    }
+    public void loadBooks(){
+        Path path= Paths.get("book.ser");
+        if (Files.exists(path)){
+            books= (ArrayList<Book>) FileUtil.loadObject("book.ser");
+
+        }else {
+            books= new ArrayList<>();
+            addBooks();
+            saveBooks();
+        }
+    }
+
 }
