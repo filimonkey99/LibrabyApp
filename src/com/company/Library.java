@@ -5,6 +5,7 @@ import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class Library {
+    private BookSystem bookSystem;
 
     ArrayList<Book> books = new ArrayList<>();
 
@@ -17,6 +18,13 @@ public class Library {
     Scanner studentPassword = new Scanner(System.in);
     Scanner librarianUserName = new Scanner(System.in);
     Scanner librarianPassword = new Scanner(System.in);
+
+
+
+    public Library() {
+        this.bookSystem = new BookSystem();
+        bookSystem.loadBooks();
+    }
 
 
     public void ShowOptions() {

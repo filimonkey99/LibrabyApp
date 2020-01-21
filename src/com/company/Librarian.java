@@ -53,7 +53,7 @@ public class Librarian extends User {
                     bookSystem.showBookInfo();
                     break;
                 case 6:
-                    System.out.println("see lended books");
+                    System.out.println("see Users lended books");
                     bookSystem.showMyBooks();
                 case 7:
                     System.out.println("Exiting");
