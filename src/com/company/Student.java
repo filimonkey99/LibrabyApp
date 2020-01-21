@@ -6,7 +6,15 @@ import java.util.Scanner;
 
 public class Student extends User {
 
-    List<Book> borrowedBooks;
+    private static List<Book> borrowedBooks=new ArrayList<>();
+
+    public static void addBook(Book book){
+        borrowedBooks.add(book);
+    }
+
+    public static List<Book> getBorrowedBooks() {
+        return borrowedBooks;
+    }
 
     BookSystem bookSystem = new BookSystem();
 
@@ -31,9 +39,10 @@ public class Student extends User {
         System.out.println("2. Lend book");
         System.out.println("3.check if book is lended");
         System.out.println("4. Return book ");
-        System.out.println("5. Search for book ");
-        System.out.println("6. show all book info");
-        System.out.println("7. Exit");
+        System.out.println("5. See all my books" );
+        System.out.println("6. Search for book ");
+        System.out.println("7. show all book info");
+        System.out.println("8. Exit");
         System.out.println("write a number please");
 
         while (running){
@@ -48,7 +57,7 @@ public class Student extends User {
                     bookSystem.lendBook();
                     break;
                 case 3:
-                    System.out.println(" See Available book");
+                    System.out.println(" See Available i book");
                     bookSystem.printAvailabeBooks();
                     break;
                 case 4:
@@ -56,14 +65,18 @@ public class Student extends User {
                     bookSystem.returnBook();
                     break;
                 case 5:
+                    System.out.println("See all my lended books");
+                    bookSystem.showMyBooks();
+                    break;
+                case 6:
                     System.out.println("Search for book");
                     bookSystem.searchBook();
                     break;
-                case 6:
+                case 7:
                     System.out.println("See all Book info");
                     bookSystem.showBookInfo();
                     break;
-                case 7:
+                case 8:
                     System.out.println("Exiting");
                     running=false;
                     break;

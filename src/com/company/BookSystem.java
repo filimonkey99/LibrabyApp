@@ -96,6 +96,7 @@ public class BookSystem {
             book.setAvailability(false);
             System.out.println();
             System.out.printf("You borrowed: %s, %b ", book.getBookName(), book.getAvailability());
+            Student.addBook(book);
         }
         return null;
     }
@@ -110,8 +111,16 @@ public class BookSystem {
             System.out.println();
             System.out.printf("you returned: %s, %b", book.getBookName(), book.getAvailability());
 
+
         }
 
+
+    }
+    public void showMyBooks(){
+        for ( Book book:Student.getBorrowedBooks()){
+            System.out.println(book.getBookName());
+
+        }
 
     }
 }
